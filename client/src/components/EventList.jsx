@@ -7,6 +7,7 @@ const EventList = ({eventData, setEventData}) => {
 
     useEffect(() => {
         getEvents().then(data => setEventData(sortAndFilterEventsByDate(data)))
+            .catch(error => console.log(error))
     },[])
     
     return (
