@@ -1,16 +1,16 @@
-import React,{useState, useEffect} from 'react'
-import {getEvents, sortEventsByDate, isLatestEvent} from '../utils/ApiClient';
+import React,{useEffect} from 'react'
+import {getEvents, sortAndFilterEventsByDate, isLatestEvent} from '../utils/ApiClient';
 import EventBox from './EventBox';
 
-const EventList = () => {
-    const [eventData, setEventData] = useState([])
+const EventList = ({eventData, setEventData}) => {
+    
 
     useEffect(() => {
-        getEvents().then(data => setEventData(sortEventsByDate(data)))
-    },[eventData])
+        getEvents().then(data => setEventData(sortAndFilterEventsByDate(data)))
+    },[])
     
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col" id="list">
             {eventData.map(event => (<EventBox key={event._id} isLatestEvent={isLatestEvent(eventData,event)} title={event.title} date={event.date} venue={event.venue}/>))}
         </div>
     )

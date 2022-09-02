@@ -15,11 +15,12 @@ export const postEvent = (data) => {
     .catch(error => console.log(error))
 }
 
-export const sortEventsByDate = (events) => {
-    console.log(events.sort((a,b) => Number(b.date) - Number(a.date)))
-    return events.sort((a,b) => new Date(b.date) - new Date(a.date));
+export const sortAndFilterEventsByDate = (events) => {
+    const eventList = events.slice().filter(event => new Date(event.date) >= Date.now())
+    console.log(eventList)
+    return eventList.sort((a,b) => new Date(a.date) - new Date(b.date));
 }
 
 export const isLatestEvent = (events, event) => {
-    return sortEventsByDate(events)[0].date === event.date? true: false;
+    return sortAndFilterEventsByDate(events)[0].date === event.date? true: false;
 }
