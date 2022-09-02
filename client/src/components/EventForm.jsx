@@ -15,7 +15,7 @@ const EventForm = ({setEventData}) => {
       const eventData = await getEvents();
       setEventData(sortAndFilterEventsByDate(eventData))
     } catch (error) {
-      throw new Error("Something is wrong. Please re-submit.")
+      alert(new Error("Something is wrong. Please re-submit."))
     }
   };
 
