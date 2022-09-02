@@ -58,6 +58,7 @@ const EventForm = ({setEventData}) => {
           <input
             name="venue"
             id="venue"
+            required
             placeholder="London"
             {...register("venue", { required: "Venue field is required"})} 
             className="border h-14 rounded-lg pl-3" 
