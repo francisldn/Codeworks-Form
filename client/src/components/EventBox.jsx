@@ -20,7 +20,7 @@ const Eventbox = ({isLatestEvent, title, date, venue}) => {
          :
         (<div className="w-[40vw] h-[200px]flex my-[2%] mx-[20%] border border-slate-500 gap-16 rounded-xl hover:scale-110 transition-all">
                 <div className="flex">
-                    <div className="flex bg-orange-500 text-white w-[20%]">
+                    <div className="flex bg-orange-500 text-white w-[10%]">
                         <h2 className="flex font-bold text-3xl self-center text-center">{moment(date).format("Do MMM")}</h2>
                     </div>
                     <div className="flex flex-col w-full py-[4%] pl-[5%] gap-2">
