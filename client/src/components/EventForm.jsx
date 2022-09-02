@@ -21,7 +21,7 @@ const EventForm = ({setEventData}) => {
 
 
   return (
-    <div className="flex flex-col justify-center border-2 border-slate-300 pt-[5%] px-[10%] w-[550px] gap-10 rounded-xl">
+    <div className="flex flex-col justify-center border-2 border-slate-300 pt-[5%] px-[10%] w-[30vw] gap-10 rounded-xl">
       <h1 className="font-bold text-3xl">Create a new event</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-10 pb-[10%]">
         <div className="flex flex-col gap-2">
