@@ -17,7 +17,6 @@ export const postEvent = (data) => {
 
 export const sortAndFilterEventsByDate = (events) => {
     const eventList = events.slice().filter(event => new Date(event.date) >= Date.now())
-    console.log(eventList)
     return eventList.sort((a,b) => new Date(a.date) - new Date(b.date));
 }
 
