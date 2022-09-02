@@ -14,7 +14,6 @@ const getEvents = async (req, res) => {
 
 const postEvent = async (req, res) => {
   try {
-    console.log(req.body);
     const {title, date, venue} = req.body;
     // data consist of title, date and venue
     await Event.create({title, date, venue});
