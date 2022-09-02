@@ -1,19 +1,21 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
-import {postEvent, sortAndFilterEventsByDate, getEvents} from '../utils/ApiClient';
+import {postEvent, sortAndFilterEventsByDate, getEvents } from '../utils/ApiClient';
 import { ErrorMessage } from '@hookform/error-message';
 
 const EventForm = ({setEventData}) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors }
-  } = useForm();
+  } = useForm({title:"", date: Date.now(), venue:""});
   const onSubmit = async (data) => {
     try{
       await postEvent({title: data.title, date: data.date, venue: data.venue})
       const eventData = await getEvents();
       setEventData(sortAndFilterEventsByDate(eventData))
+      reset()
     } catch (error) {
       alert(new Error("Something is wrong. Please re-submit."))
     }
@@ -29,6 +31,7 @@ const EventForm = ({setEventData}) => {
           <input
             name="title"
             id="title"
+            type="text"
             required
             placeholder="Codework assessment"
             {...register("title", { required: "Title field is required" })}
@@ -58,6 +61,7 @@ const EventForm = ({setEventData}) => {
           <input
             name="venue"
             id="venue"
+            type="text"
             required
             placeholder="London"
             {...register("venue", { required: "Venue field is required"})} 
